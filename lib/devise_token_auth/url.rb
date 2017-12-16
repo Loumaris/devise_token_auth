@@ -4,7 +4,6 @@ module DeviseTokenAuth::Url
     uri = URI(url)
 
     res = "#{uri.scheme}://#{uri.host}"
-    res += ":#{uri.port}" unless [80, 443].include?(uri.port)
     res += "#{uri.path}" if uri.path
     query = [uri.query, params.to_query].reject(&:blank?).join('&')
     res += "?#{query}"
