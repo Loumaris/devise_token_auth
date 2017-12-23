@@ -79,7 +79,7 @@ module DeviseTokenAuth
 
     # break out provider attribute assignment for easy method extension
     def assign_provider_attrs(user, auth_hash)
-      attrs = auth_hash['info'].permit(*user.attributes.keys).to_hash
+      attrs = auth_hash['info'].slice(*user.attributes.keys)
       user.update_attributes(attrs)
     end
 
