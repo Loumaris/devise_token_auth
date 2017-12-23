@@ -79,7 +79,14 @@ module DeviseTokenAuth
 
     # break out provider attribute assignment for easy method extension
     def assign_provider_attrs(user, auth_hash)
+      Rails.logger.info "XXXXXXX ------------------- XXXXXXX"
+      Rails.logger.info "XXXXXXX: #{auth_hash}"
+      Rails.logger.info "XXXXXXX ------------------- XXXXXXX"
+      Rails.logger.info "XXXXXXX: #{user}"
+      Rails.logger.info "XXXXXXX ------------------- XXXXXXX"
       attrs = auth_hash['info'].slice(*user.attributes.keys)
+      Rails.logger.info "XXXXXXX: #{attrs}"
+      Rails.logger.info "XXXXXXX ------------------- XXXXXXX"
       user.update_attributes(attrs)
     end
 
