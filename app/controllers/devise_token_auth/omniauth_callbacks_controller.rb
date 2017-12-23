@@ -84,7 +84,7 @@ module DeviseTokenAuth
       Rails.logger.info "XXXXXXX ------------------- XXXXXXX"
       Rails.logger.info "XXXXXXX: #{user}"
       Rails.logger.info "XXXXXXX ------------------- XXXXXXX"
-      attrs = auth_hash['info'].slice(*user.attributes.keys)
+      attrs = auth_hash['info'].slice(*user.attributes.keys).to_hash
       Rails.logger.info "XXXXXXX: #{attrs}"
       Rails.logger.info "XXXXXXX ------------------- XXXXXXX"
       user.update_attributes(attrs)
